@@ -11,6 +11,7 @@ class AssignPatientDoctorRequest extends FormRequest
     {
         return User::findOrFail($this->input('doctor_id'));
     }
+
     public function rules(): array
     {
         return [

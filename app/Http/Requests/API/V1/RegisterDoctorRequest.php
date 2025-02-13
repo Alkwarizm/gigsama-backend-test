@@ -14,7 +14,7 @@ class RegisterDoctorRequest extends FormRequest
             'email' => ['required', 'email', 'unique:users,email'],
             'password' => ['required', Password::min(8)
                 ->uncompromised(),
-                'confirmed'
+                'confirmed',
             ],
         ];
     }

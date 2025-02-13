@@ -1,6 +1,5 @@
 <?php
 
-
 use App\Http\Controllers\API\V1\DoctorRegisterController;
 use Tests\Factories\Requests\DoctorDataRequest;
 

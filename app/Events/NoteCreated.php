@@ -9,7 +9,5 @@ class NoteCreated
 {
     use Dispatchable;
 
-    public function __construct(public Note $note)
-    {
-    }
+    public function __construct(public Note $note) {}
 }

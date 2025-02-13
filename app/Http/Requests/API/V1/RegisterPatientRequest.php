@@ -13,8 +13,8 @@ class RegisterPatientRequest extends FormRequest
             'name' => ['required', 'string', 'min:3', 'max:255'],
             'email' => ['required', 'email', 'unique:users,email'],
             'password' => ['required', Password::min(8)
-                            ->uncompromised(),
-                        'confirmed'
+                ->uncompromised(),
+                'confirmed',
             ],
         ];
     }

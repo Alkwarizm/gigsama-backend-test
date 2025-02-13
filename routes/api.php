@@ -6,7 +6,6 @@ use App\Http\Controllers\API\V1\PatientDoctorAssignmentController;
 use App\Http\Controllers\API\V1\PatientRegisterController;
 use Illuminate\Support\Facades\Route;
 
-
 Route::prefix('v1')
     ->group(function () {
         Route::prefix('doctors')
