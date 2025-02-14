@@ -18,3 +18,11 @@ Develop a backend system for a hospital that handles user signups, patient–doc
 1. Clone the repository
 2. Run `composer install`
 3. Run `php artisan migrate`
+
+### Documentation
+1. Authentication uses api tokens (secure standard)
+2. AES encryption for sensitive data
+3. Uses cron expressions to create schedules, easy to integrate with cron jobs
+
+### Run tests
+1. Run `php artisan test`
