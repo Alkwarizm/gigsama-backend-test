@@ -6,6 +6,7 @@ use App\Actions\CreateNoteAction;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\API\V1\StoreNoteRequest;
 use App\Http\Resources\NoteResource;
+use App\Models\Note;
 use Illuminate\Http\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -21,5 +22,15 @@ class DoctorNotesController extends Controller
             'message' => 'Note created successfully',
             'data' => NoteResource::make($note),
         ], Response::HTTP_CREATED);
+    }
+
+    public function show(Note $note): JsonResponse
+    {
+        $note->load('actionables', 'patient');
+
+        return response()->json([
+            'message' => 'Note retrieved successfully',
+            'data' => NoteResource::make($note),
+        ]);
     }
 }

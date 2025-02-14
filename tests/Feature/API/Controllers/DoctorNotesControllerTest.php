@@ -24,3 +24,25 @@ it('creates a note for a patient by a doctor', function () {
         'content' => $content,
     ]);
 });
+
+it('retrieves a note with its actionable steps', function () {
+    $doctor = User::factory()->create(['role' => UserRole::DOCTOR]);
+    $patient = User::factory()->create(['role' => UserRole::PATIENT]);
+    $note = Note::factory()->create([
+        'patient_id' => $patient->id,
+        'doctor_id' => $doctor->id,
+    ]);
+
+    $response = $this->actingAs($doctor, 'sanctum')
+        ->getJson(action([DoctorNotesController::class, 'show'], $note->id));
+
+    $response->assertOk()
+        ->assertJson([
+            'message' => 'Note retrieved successfully',
+            'data' => [
+                'id' => $note->id,
+                'content' => $note->content,
+                'actionable_steps' => [],
+            ],
+        ]);
+});

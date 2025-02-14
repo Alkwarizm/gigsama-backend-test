@@ -17,6 +17,7 @@ Route::prefix('v1')
                         ->group(function () {
                             Route::get('patients', [PatientDoctorAssignmentController::class, 'index']);
                             Route::post('notes', DoctorNotesController::class);
+                            Route::get('notes/{note}', [DoctorNotesController::class, 'show']);
                         });
                 });
             });
